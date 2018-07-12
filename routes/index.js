@@ -1,9 +1,10 @@
 var express = require('express');
 var router = express.Router();
 var con = require('../db');
+var socketsAPI = require('../socket-api.js');
 
 function getData(callback) {
-  var sql = "SELECT * FROM framestestnew limit 50";
+  var sql = "SELECT * FROM framestestnew order by id DESC limit 50";
 	con.query(sql, (err, results) => {
     if (err) throw err;
     console.log("got the results");
@@ -17,6 +18,11 @@ function saveFrameData(frameD, callback) {
   con.query(sql, (err, results) => {
     if (err) throw err;
     console.log("Inserted into Database!");
+    var data = {
+    	id: results.insertId,
+    	frameD: frameD
+    }
+    socketsAPI.sendNotification(data);
     callback(false, results)
   });
 }

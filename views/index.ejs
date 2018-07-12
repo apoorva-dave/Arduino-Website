@@ -6,6 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Real-time Data from <%= title %></title>
     <link rel="stylesheet" href="/assets/bootstrap.min.css">
+    <style>
+      .table tr{
+        transition: all 0.5s ease;
+      }
+      .table tr.added{
+        background-color: #2bca2b;
+        color: #000000;
+        transition: all 0.5s ease;
+      }
+    </style>
 </head>
 <body>
     <!-- Navigation Starts -->
@@ -55,7 +65,7 @@
             <p class="lead">All the data is directly coming from the <%= title %>
                 <br> Show wahtever you want here!</p>
         </div>
-        <table class="table table-hover">
+        <table class="table table-hover" id="main-table">
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">ID</th>
@@ -132,6 +142,21 @@
     <script src="/assets/socket.io.js"></script>
     <script>
       var socket = io();
+      socket.on('data-update', function(msg){
+        console.log("data", msg.data);
+
+        var newRow = "<tr class='added'>\
+          <td>"+msg.data.id+"</td>\
+          <td>"+msg.data.frameD+"</td>\
+          <td>0</td>\
+        </tr>";
+
+        $("#main-table tbody").prepend(newRow);
+
+        setTimeout(function () {
+          $(".added").removeClass("added");
+        }, 1000);
+      });
     </script>
 </body>
 </html>

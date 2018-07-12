@@ -8,8 +8,8 @@ io.on('connection', function(socket){
     console.log('A user connected');
 });
 
-socketApi.sendNotification = function() {
-    io.sockets.emit('hello', {msg: 'Hello World!'});
+socketApi.sendNotification = function(data) {
+    io.sockets.emit('data-update', {data: data});
 }
 
 module.exports = socketApi;
