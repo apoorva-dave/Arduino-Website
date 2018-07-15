@@ -76,4 +76,13 @@ router.get('/get-frame', function(req, res, next) {
 	})
 });
 
+router.get('/thesis', function(req, res, next) {
+  console.log("Inside Thesis Page!");
+  res.render('thesis', { title: 'Piksi'});
+});
+
+router.get('/graph', function(req, res, next) {
+  console.log("Inside Graph Page!");
+  res.render('graph', { title: 'Piksi'});
+});
 module.exports = router;

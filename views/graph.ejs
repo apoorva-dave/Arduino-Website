@@ -28,7 +28,7 @@
     
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" href="/">Home
                         <span class="sr-only">(current)</span>
                     </a>
@@ -67,32 +67,8 @@
                 <br> Show wahtever you want here!</p> -->
           <br>
         </div>
-        <table class="table table-hover" id="main-table">
-            <thead class="thead-dark">
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Frame Data</th>
-                    <th scope="col">Read Flag</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% for(var i=0; i< tableData.length; i++) {%>
-                   <tr>
-                     <td>
-                       <%= tableData[i].id %>
-                     </td>
-                     <td>
-                       <%= tableData[i].frameD %>
-                     </td>
-                     <td>
-                       <%= tableData[i].read_flag %>
-                     </td>
-                   </tr>
-                <% } %>
-            </tbody>
-        </table>
-        <!-- <h2>Graph</h2> -->
-        <!-- <canvas id="myChart" width="400" height="200"></canvas> -->
+        <h2>Graph</h2>
+        <canvas id="myChart" width="400" height="200"></canvas>
     
     </main>
     <!-- Main Ends -->
