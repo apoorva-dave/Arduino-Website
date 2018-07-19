@@ -15,6 +15,9 @@
         color: #000000;
         transition: all 0.5s ease;
       }
+      .table tr{
+        text-align: center;
+      }
     </style>
 </head>
 <body>
@@ -71,23 +74,55 @@
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">Frame Data</th>
-                    <th scope="col">Read Flag</th>
+                    <th align="center" scope="col">Data</th>
+                    <!-- <th scope="col">Starting Byte</th>
+                    <th scope="col">Message Type</th>
+                    <th scope="col">Piksi ID</th>
+                    <th scope="col">Length</th>
+                    <th scope="col">Data</th>
+                    <th scope="col">Checksum</th>
+                    <th scope="col">Read Flag</th> -->
                 </tr>
             </thead>
             <tbody>
                 <% for(var i=0; i< tableData.length; i++) {%>
-                   <tr>
-                     <td>
+                    <tr>
+                      <td>
                        <%= tableData[i].id %>
-                     </td>
-                     <td>
+                      </td>
+                      <!-- <td>
+                       <%= tableData[i].frameD[0]%>
+                       <%=tableData[i].frameD[1] %>
+                      </td>
+                      <td>
+                       <% for(var j=3; j< 7; j++) {%>
+                       <%= tableData[i].frameD[j]%>
+                        <% } %>
+                      </td>
+                      <td>
+                       <% for(var j=8; j< 14; j++) {%>
+                       <%= tableData[i].frameD[j]%>
+                        <% } %>
+                      </td>
+                      <td>
+                       <% for(var j=15; j< 17; j++) {%>
+                       <%= tableData[i].frameD[j]%>
+                        <% } %>
+                      </td>
+                      <td>
+                       <% for(var j=18; j< 50; j++) {%>
+                       <%= tableData[i].frameD[j]%>
+                        <% } %>
+                      </td>
+                      <td>
+                       <% for(var j=51; j< 58; j++) {%>
+                       <%= tableData[i].frameD[j]%>
+                        <% } %>
+                      </td> -->
+                      <td>
                        <%= tableData[i].frameD %>
-                     </td>
-                     <td>
-                       <%= tableData[i].read_flag %>
-                     </td>
-                   </tr>
+                      </td>
+                    </tr>
                 <% } %>
             </tbody>
         </table>
@@ -150,7 +185,6 @@
         var newRow = "<tr class='added'>\
           <td>"+msg.data.id+"</td>\
           <td>"+msg.data.frameD+"</td>\
-          <td>0</td>\
         </tr>";
 
         $("#main-table tbody").prepend(newRow);
