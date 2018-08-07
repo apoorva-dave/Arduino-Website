@@ -57,7 +57,6 @@ router.get('/', function(req, res, next) {
 
 router.get('/add-frame', function(req, res, next) {
 	// console.log("Inside add-frame");
-	// var frameD = req.query.frameD;
 	var frameD = req.query.frameD;
 	saveFrameData(frameD, function(err, results){
 		if (err) throw err;
@@ -67,18 +66,7 @@ router.get('/add-frame', function(req, res, next) {
 		});
 	})
 });
-router.post('/post-add-frame', function(req, res, next) {
-	// console.log("Inside add-frame");
-	// var frameD = req.query.frameD;
-	var frameD = req.body.frameD;
-	saveFrameData(frameD, function(err, results){
-		if (err) throw err;
-		// console.log("Inside callback!")
-		res.json({
-			success: true
-		});
-	})
-});
+
 router.get('/get-frame', function(req, res, next) {
 	// console.log("Inside get-frame");
 	getFrameData(function(err, results){
