@@ -31,17 +31,20 @@ function getFrameData(callback) {
   var sql = "SELECT * FROM framestestnew where read_flag = 0 order by id LIMIT 1";
   // console.log(sql);
   con.query(sql, (err, results) => {
-    if (err) throw err;
-    var rowId = results[0].id;
-  	var sql2 = "UPDATE framestestnew set read_flag = 1 where id ="+ rowId;
-  	// console.log(sql2);
+    if (results.length > 0) {
+			var rowId = results[0].id;
+	  	var sql2 = "UPDATE framestestnew set read_flag = 1 where id ="+ rowId;
+	  	// console.log(sql2);
 
-  	// Updating the read flag = 1
-  	con.query(sql2, (err, results) => {
-	    if (err) throw err;
-  		console.log("Updated the read flag");
-  	});
-    callback(false, results)
+	  	// Updating the read flag = 1
+	  	con.query(sql2, (err, results) => {
+		    if (err) throw err;
+	  		console.log("Updated the read flag");
+	  	});
+	    callback(false, results)
+    }else{
+	    callback(true, null)
+    }
   });
 }
 
@@ -82,9 +85,15 @@ router.post('/post-add-frame', function(req, res, next) {
 router.get('/get-frame', function(req, res, next) {
 	// console.log("Inside get-frame");
 	getFrameData(function(err, results){
-		if (err) throw err;
+		if (err) {
+			console.log(err)
+			res.send(null);
+		}
 		// console.log("Inside callback!");
-		res.send(results[0].frameD.replace(/,/g,''));
+		// res.send(results[0].frameD.replace(/,/g,''));
+		else{
+			res.send(results[0].frameD);
+		}
 	})
 });
 
