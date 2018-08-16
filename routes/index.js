@@ -28,12 +28,12 @@ function saveFrameData(frameD, callback) {
 }
 
 function getFrameData(callback) {
-  var sql = "SELECT * FROM framestestnew where read_flag = 0 order by id LIMIT 1";
+  var sql = "SELECT * FROM framestestnew where read_flag = 0 order by id DESC LIMIT 1";
   // console.log(sql);
   con.query(sql, (err, results) => {
     if (results.length > 0) {
 			var rowId = results[0].id;
-	  	var sql2 = "UPDATE framestestnew set read_flag = 1 where id ="+ rowId;
+	  	var sql2 = "UPDATE framestestnew set read_flag = 1 where id <="+ rowId;
 	  	// console.log(sql2);
 
 	  	// Updating the read flag = 1
