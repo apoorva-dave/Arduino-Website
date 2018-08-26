@@ -40,9 +40,9 @@
                     <a class="nav-link" href="thesis">Thesis</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="graph">Graph</a>
+                    <a class="nav-link" href="graph">Frame Details</a>
                 </li>
-                <li class="nav-item dropdown">
+               <!--  <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">Dropdown</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown01">
@@ -50,7 +50,7 @@
                         <a class="dropdown-item" href="#">Another action</a>
                         <a class="dropdown-item" href="#">Something else here</a>
                     </div>
-                </li>
+                </li> -->
             </ul>
             <!-- <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
@@ -74,56 +74,26 @@
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">ID</th>
-                    <th align="center" scope="col">Data</th>
-                    <!-- <th scope="col">Starting Byte</th>
+                    <th scope="col">Starting Byte</th>
                     <th scope="col">Message Type</th>
-                    <th scope="col">Piksi ID</th>
+                    <th scope="col">Device ID</th>
                     <th scope="col">Length</th>
                     <th scope="col">Data</th>
-                    <th scope="col">Checksum</th>
-                    <th scope="col">Read Flag</th> -->
+                    <th scope="col">No. of Satellites</th>
                 </tr>
             </thead>
             <tbody>
-                <% for(var i=0; i< tableData.length; i++) {%>
+                <!-- <% //for(var i=0; i< tableData.length; i++) {%>
                     <tr>
                       <td>
-                       <%= tableData[i].id %>
-                      </td>
-                      <!-- <td>
-                       <%= tableData[i].frameD[0]%>
-                       <%=tableData[i].frameD[1] %>
+                       <%= // tableData[i].id %>
                       </td>
                       <td>
-                       <% for(var j=3; j< 7; j++) {%>
-                       <%= tableData[i].frameD[j]%>
-                        <% } %>
-                      </td>
-                      <td>
-                       <% for(var j=8; j< 14; j++) {%>
-                       <%= tableData[i].frameD[j]%>
-                        <% } %>
-                      </td>
-                      <td>
-                       <% for(var j=15; j< 17; j++) {%>
-                       <%= tableData[i].frameD[j]%>
-                        <% } %>
-                      </td>
-                      <td>
-                       <% for(var j=18; j< 50; j++) {%>
-                       <%= tableData[i].frameD[j]%>
-                        <% } %>
-                      </td>
-                      <td>
-                       <% for(var j=51; j< 58; j++) {%>
-                       <%= tableData[i].frameD[j]%>
-                        <% } %>
-                      </td> -->
-                      <td>
-                       <%= tableData[i].frameD %>
+                       <%= //tableData[i].frameD %>
                       </td>
                     </tr>
-                <% } %>
+                <% //} %> -->
+
             </tbody>
         </table>
         <!-- <h2>Graph</h2> -->
@@ -138,57 +108,133 @@
     
     <!-- Write your scripts below -->
     <script>
-        var ctx = document.getElementById("myChart").getContext('2d');
-        var myChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-                datasets: [{
-                    label: '# of Votes',
-                    data: [12, 19, 3, 5, 2, 3],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255,99,132,1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero:true
-                        }
-                    }]
-                }
-            }
-        });
+        // var ctx = document.getElementById("myChart").getContext('2d');
+        // var myChart = new Chart(ctx, {
+        //     type: 'line',
+        //     data: {
+        //         labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        //         datasets: [{
+        //             label: '# of Votes',
+        //             data: [12, 19, 3, 5, 2, 3],
+        //             backgroundColor: [
+        //                 'rgba(255, 99, 132, 0.2)',
+        //                 'rgba(54, 162, 235, 0.2)',
+        //                 'rgba(255, 206, 86, 0.2)',
+        //                 'rgba(75, 192, 192, 0.2)',
+        //                 'rgba(153, 102, 255, 0.2)',
+        //                 'rgba(255, 159, 64, 0.2)'
+        //             ],
+        //             borderColor: [
+        //                 'rgba(255,99,132,1)',
+        //                 'rgba(54, 162, 235, 1)',
+        //                 'rgba(255, 206, 86, 1)',
+        //                 'rgba(75, 192, 192, 1)',
+        //                 'rgba(153, 102, 255, 1)',
+        //                 'rgba(255, 159, 64, 1)'
+        //             ],
+        //             borderWidth: 1
+        //         }]
+        //     },
+        //     options: {
+        //         scales: {
+        //             yAxes: [{
+        //                 ticks: {
+        //                     beginAtZero:true
+        //                 }
+        //             }]
+        //         }
+        //     }
+        // });
     </script>
     <script src="/assets/socket.io.js"></script>
+  
+    <script type="text/javascript">
+      function spiltAFrame(frameArray){
+        // console.log(frameArray);
+        var starting_byte = frameArray[0],
+          message_type = frameArray[1] + ", " +frameArray[2],
+          device_id = frameArray[3] + ", " +frameArray[4],
+          length = parseInt(frameArray[5]),
+          data = "";
+          for (var i = 5; i < 5 + length; i++) {
+            data += frameArray[i];
+            if(i != (4+length))
+              data += ",";
+          }
+          no_of_satellites = (parseInt(frameArray[5])-11)/17;
+          return {
+            "starting_byte" : starting_byte, 
+            "message_type" : message_type,
+            "device_id" : device_id,
+            "length" : length,
+            "data" : data,
+            "no_of_satellites": parseInt(no_of_satellites)
+          }
+      }
+
+      function splitIntoTwoFramesAndAppend(frameFromDB, id, highlight=false){
+        var twoFrames = frameFromDB,
+            twoFramesArr = frameFromDB.split(",");
+        // we need 6th element
+        var firstFrameLength = parseInt(twoFramesArr[5]);
+        var firstFrame = "";
+
+        // Loop till the lenth as specifed in firstFrameLength + 2 for checksum. 
+        for (var i = 0; i <= firstFrameLength + 5 + 2; i++) {
+          if(i != firstFrameLength + 5 + 2)
+            firstFrame += twoFramesArr[i] + ", ";
+          else
+           firstFrame += twoFramesArr[i];
+        }
+        console.log(firstFrame);
+        var frameSplitedData = spiltAFrame(firstFrame.split(","));
+        var newRow = "<tr class='"+ (highlight ? "added" : null)+"'>\
+          <td>"+id+"-1</td>\
+          <td>"+frameSplitedData.starting_byte+"</td>\
+          <td>"+frameSplitedData.message_type+"</td>\
+          <td>"+frameSplitedData.device_id+"</td>\
+          <td>"+frameSplitedData.length+"</td>\
+          <td>"+frameSplitedData.data+"</td>\
+          <td>"+frameSplitedData.no_of_satellites+"</td>\
+        </tr>";
+        $("#main-table tbody").prepend(newRow);
+        // First Frame appended
+        var secondFrame = "";
+        for (var i = firstFrameLength + 5 + 3; i <= twoFramesArr.length - 1; i++) {
+          if(i != twoFramesArr.length - 1)
+            secondFrame += twoFramesArr[i] + ", ";
+          else
+           secondFrame += twoFramesArr[i];
+        }
+        console.log(secondFrame);
+        frameSplitedData = spiltAFrame(secondFrame.split(","));
+        newRow = "<tr class='"+ (highlight ? "added" : null)+"'>\
+          <td>"+id+"-2</td>\
+          <td>"+frameSplitedData.starting_byte+"</td>\
+          <td>"+frameSplitedData.message_type+"</td>\
+          <td>"+frameSplitedData.device_id+"</td>\
+          <td>"+frameSplitedData.length+"</td>\
+          <td>"+frameSplitedData.data+"</td>\
+          <td>"+frameSplitedData.no_of_satellites+"</td>\
+        </tr>";
+        $("#main-table tbody").prepend(newRow);
+        // Second frame appened
+      }
+      // Script to get Data from backend
+      $.get("http://localhost:3000/all-data", function(data){
+        console.log(data); 
+        for (var i = data.results.length -1; i >= 0 ; i--) {
+          console.log(data.results[i].frameD);
+          splitIntoTwoFramesAndAppend(data.results[i].frameD, data.results[i].id);
+        }
+      });
+    </script>
+
     <script>
       var socket = io();
       socket.on('data-update', function(msg){
         console.log("data", msg.data);
-
-        var newRow = "<tr class='added'>\
-          <td>"+msg.data.id+"</td>\
-          <td>"+msg.data.frameD+"</td>\
-        </tr>";
-
-        $("#main-table tbody").prepend(newRow);
-
+        splitIntoTwoFramesAndAppend(msg.data.frameD, msg.data.id, true);
         setTimeout(function () {
           $(".added").removeClass("added");
         }, 1000);

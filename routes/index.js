@@ -48,13 +48,20 @@ function getFrameData(callback) {
   });
 }
 
+router.get('/all-data', function(req, res, next) {
+	getData(function(err, results) {
+  	if(err) throw err;
+		  res.json({results: results});	    	
+	  });	
+});
+
 router.get('/', function(req, res, next) {
   console.log("Inside Home Page!");
   getData(function(err, results) {
   	if(err) throw err;
   	console.log("inside the callback");
   	// console.log(results);
-	  res.render('index', { title: 'Piksi', tableData: results});	    	
+	  res.render('index', { title: 'Piksi'});	    	
   });
 });
 
@@ -103,7 +110,11 @@ router.get('/thesis', function(req, res, next) {
 });
 
 router.get('/graph', function(req, res, next) {
-  console.log("Inside Graph Page!");
-  res.render('graph', { title: 'Piksi'});
+  getData(function(err, results) {
+  	if(err) throw err;
+  	console.log("inside the callback");
+  	// console.log(results);
+	res.render('graph', { title: 'Piksi', tableData: results});	    	
+  });
 });
 module.exports = router;

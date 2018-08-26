@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Real-time Data from <%= title %></title>
+    <title>Frame Details from <%= title %></title>
     <link rel="stylesheet" href="/assets/bootstrap.min.css">
     <style>
       .table tr{
@@ -37,9 +37,9 @@
                     <a class="nav-link" href="thesis">Thesis</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="graph">Graph</a>
+                    <a class="nav-link" href="graph">Frame Details</a>
                 </li>
-                <li class="nav-item dropdown">
+              <!--   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">Dropdown</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown01">
@@ -47,7 +47,7 @@
                         <a class="dropdown-item" href="#">Another action</a>
                         <a class="dropdown-item" href="#">Something else here</a>
                     </div>
-                </li>
+                </li> -->
             </ul>
             <!-- <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
@@ -58,17 +58,219 @@
     <!-- Navigation Ends -->
 
     <!-- Main Starts -->
-    <main role="main" class="container">
+       <main role="main" class="container">
     
         <div class="text-center">
           <br>
-            <h1>Realtime Data from <%= title %></h1>
+            <h1>Frame Details from <%= title %></h1>
             <!-- <p class="lead">Data coming from <%= title %>
                 <br> Show wahtever you want here!</p> -->
           <br>
         </div>
-        <h2>Graph</h2>
-        <canvas id="myChart" width="400" height="200"></canvas>
+        <h3>Frame 1</h3><br>
+        <table class="table table-hover" id="main-table">
+            <thead class="thead-dark">
+                <tr>
+                    <th align="center" scope="col">Starting Byte</th>
+                     <td>
+                       <%= 85 %>
+                      </td>
+                </tr>
+                <tr>
+                    <th align="center" scope="col">Message Type</th>
+                    <td>
+                       <% for(var j=3; j< 7; j++) {%>
+                       <%= tableData[0].frameD[j]%>
+                        <% } %>
+                    </td>
+                </tr>
+                <tr>
+                    <th align="center" scope="col">Device ID</th>
+                    <td>
+                        <% for(var j=8; j< 14; j++) {%>
+                        <%= tableData[0].frameD[j]%>
+                        <% } %>
+                    </td>
+                </tr>
+                <tr>
+                    <th align="center" scope="col">Length</th>
+                    <td>
+                        <% for(var j=15; j< 17; j++) {%>
+                        <%= tableData[0].frameD[j]%>
+                        <% } %>
+                    </td>
+                </tr>
+                <tr>
+                    <th align="center" scope="col">Data</th>
+                     <td>
+                        <% for(var j=18; j< 58; j++) {%>
+                        <%= tableData[0].frameD[j]%>
+                        <% } %>
+                    </td>
+                </tr>
+                <tr>
+                    <th align="center" scope="col">No. of Satellites</th>
+                     <td>
+                        <% for(var j=15; j< 17; j++) {%>
+                        <%= tableData[0].frameD[j]%>
+                        <% } %>
+                    </td>
+                </tr>
+            </thead>
+            <!-- 
+            <tbody>
+                <% for(var i=0; i< tableData.length; i++) {%>
+                    <tr>
+                      <td>
+                       <%= tableData[i].id %>
+                      </td>
+                      <td>
+                       <%= tableData[i].frameD[0]%>
+                       <%=tableData[i].frameD[1] %>
+                      </td>
+                      <td>
+                       <% for(var j=3; j< 7; j++) {%>
+                       <%= tableData[i].frameD[j]%>
+                        <% } %>
+                      </td>
+                      <td>
+                       <% for(var j=8; j< 14; j++) {%>
+                       <%= tableData[i].frameD[j]%>
+                        <% } %>
+                      </td>
+                      <td>
+                       <% for(var j=15; j< 17; j++) {%>
+                       <%= tableData[i].frameD[j]%>
+                        <% } %>
+                      </td>
+                      <td>
+                       <% for(var j=18; j< 50; j++) {%>
+                       <%= tableData[i].frameD[j]%>
+                        <% } %>
+                      </td>
+                      <td>
+                       <% for(var j=51; j< 58; j++) {%>
+                       <%= tableData[i].frameD[j]%>
+                        <% } %>
+                      </td>
+                      <td>
+                       <%= tableData[i].frameD %>
+                      </td>
+                    </tr>
+                <% } %>
+            </tbody>
+             -->
+        </table>
+        <br>
+        <h3>Frame 2</h3><br>
+        <table class="table table-hover" id="main-table">
+            <thead class="thead-dark">
+                <tr>
+                    <th align="center" scope="col">Starting Byte</th>
+                     <td>
+                       <%= 85 %>
+                      </td>
+                </tr>
+                <tr>
+                    <th align="center" scope="col">Message Type</th>
+                    <td>
+                       <% for(var j=3; j< 7; j++) {%>
+                       <%= tableData[1].frameD[j]%>
+                        <% } %>
+                    </td>
+                </tr>
+                <tr>
+                    <th align="center" scope="col">Device ID</th>
+                    <td>
+                        <% for(var j=8; j< 14; j++) {%>
+                        <%= tableData[1].frameD[j]%>
+                        <% } %>
+                    </td>
+                </tr>
+                <tr>
+                    <th align="center" scope="col">Length</th>
+                    <td>
+                        <% for(var j=15; j< 17; j++) {%>
+                        <%= tableData[1].frameD[j]%>
+                        <% } %>
+                    </td>
+                </tr>
+                <tr>
+                    <th align="center" scope="col">Data</th>
+                     <td>
+                        <% for(var j=18; j< 58; j++) {%>
+                        <%= tableData[1].frameD[j]%>
+                        <% } %>
+                    </td>
+                </tr>
+                <tr>
+                    <th align="center" scope="col">No. of Satellites</th>
+                     <td>
+                        <% for(var j=15; j< 17; j++) {%>
+                        <%= tableData[1].frameD[j]%>
+                        <% } %>
+                    </td>
+                </tr>
+            </thead>
+            <!-- 
+            <tbody>
+                <% for(var i=0; i< tableData.length; i++) {%>
+                    <tr>
+                      <td>
+                       <%= tableData[i].id %>
+                      </td>
+                      <td>
+                       <%= tableData[i].frameD[0]%>
+                       <%=tableData[i].frameD[1] %>
+                      </td>
+                      <td>
+                       <% for(var j=3; j< 7; j++) {%>
+                       <%= tableData[i].frameD[j]%>
+                        <% } %>
+                      </td>
+                      <td>
+                       <% for(var j=8; j< 14; j++) {%>
+                       <%= tableData[i].frameD[j]%>
+                        <% } %>
+                      </td>
+                      <td>
+                       <% for(var j=15; j< 17; j++) {%>
+                       <%= tableData[i].frameD[j]%>
+                        <% } %>
+                      </td>
+                      <td>
+                       <% for(var j=18; j< 50; j++) {%>
+                       <%= tableData[i].frameD[j]%>
+                        <% } %>
+                      </td>
+                      <td>
+                       <% for(var j=51; j< 58; j++) {%>
+                       <%= tableData[i].frameD[j]%>
+                        <% } %>
+                      </td>
+                      <td>
+                       <%= tableData[i].frameD %>
+                      </td>
+                    </tr>
+                <% } %>
+            </tbody>
+             -->
+        </table>
+        <!-- <h2>Graph</h2> -->
+        <!-- <canvas id="myChart" width="400" height="200"></canvas> -->
+    
+    </main>
+    <main role="main" class="container">
+    
+        <div class="text-center">
+          <br>
+            <!-- <h1>Realtime Data from <%= title %></h1> -->
+            <!-- <p class="lead">Data coming from <%= title %>
+                <br> Show wahtever you want here!</p> -->
+          <br>
+        </div>
+        <!-- <h2>Graph</h2> -->
+        <!-- <canvas id="myChart" width="400" height="200"></canvas> -->
     
     </main>
     <!-- Main Ends -->
